@@ -29,7 +29,7 @@
                                .val('');
                         break;
                     case 2://присутствует учетная запись
-                        document.getElementById(result_id).innerHTML = jsn.message+" ID:"+jsn.id;
+                        document.getElementById(result_id).innerHTML = jsn.message;
                         break;
                     case 3://Присутствуют ошибки
                         document.getElementById(result_id).innerHTML = jsn.message;
