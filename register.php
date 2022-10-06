@@ -6,14 +6,15 @@ $data=array();
 
 if(isset($_POST)){
 
-    $err_cnt=0;
+    $err_cnt=0; //счетчик ошибок
     $err_msg='';
-    if(isset($_POST['email'])){
+    if(isset($_POST['email'])){ //Проверка email на ошибки
         if(!str_contains($_POST['email'],"@")){
             $err_cnt+=1;
             $err_msg.='Email адресс указан не правильно!';
         }
     }
+    // Проверка паролей на совпадение
     if (strcmp($_POST['password'], $_POST['rpassword']) !== 0) {
         $err_cnt+=1;
         $err_msg.=' Пароли не совпадают!';
@@ -21,13 +22,14 @@ if(isset($_POST)){
 
 }
 
-if($err_cnt==0){
+if($err_cnt==0){// если ошибки отсутствуют
 
+    //Открываем или создаем лог файл
     if (!$fp = fopen($filename, 'a')) {
         echo "Не могу открыть файл ($filename)";
         exit;
     }
-
+    // Масив учетных записей
     $array[] = array('id'=>1,'name'=>'Nike', 'email'=>'nike@email.net');
     $array[] = array('id'=>2,'name'=>'Mike', 'email'=>'mike@email.net');
     $array[] = array('id'=>3,'name'=>'Tom',  'email'=>'tom@email.net');
@@ -40,6 +42,7 @@ if($err_cnt==0){
     $id=0;
     $max_id=0;
 
+    // Проверяем учетной записи по емайл на наличие в масиве
     for($i=0;$i<count($array);$i++){
         if($array[$i]['id']>$max_id){
             $max_id = $array[$i]['id'];
@@ -52,26 +55,26 @@ if($err_cnt==0){
           fwrite($fp, date("Y-m-d H:m:i")."Сравнение email ".$array[$i]['email']." и ".$_POST['email']." не успешное\r\n");
         }
     }
-    if($id == 0){
+
+    if($id == 0){// Если в масиве учетная запись не найдена тогда добавляем
         $array[] = array('id'=>$max_id+1,'name'=>$_POST['f_name']." ".$_POST['s_name'], 'email'=>$_POST['email']);
         $data['status']=1;//Новая учетная запись
         $data['id']=$max_id+1;
         $data['message']="Новый пользователь зарегистрирован!";
 
-    }else{
-        $data['status']=2;//присутствует учетная запись
+    }else{//Если присутствует учетная запись
+        $data['status']=2;
         $data['id']=$id;
         $data['message']="Пользователь существует!";
     }
     fclose($fp);
 
-}else{
-    $data['status']=3;//Присутствуют ошибки
+}else{//если присутствуют ошибки
+    $data['status']=3;
     $data['id']=0;
     $data['message']="Ошибка!<br> ".$err_msg;
 }
 $json = json_encode($data);
-
 
 header('Content-type: application/json');
 echo $json;
