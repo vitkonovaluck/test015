@@ -24,6 +24,9 @@
                     case 1://Новая учетная запись
                         document.getElementById("formMain").style.display = "none";
                         document.getElementById(result_id).innerHTML = jsn.message+" ID:"+jsn.id;
+                            $(':input','#formMain')
+                               .not(':button, :submit, :reset, :hidden')
+                               .val('');
                         break;
                     case 2://присутствует учетная запись
                         document.getElementById(result_id).innerHTML = jsn.message+" ID:"+jsn.id;
@@ -40,11 +43,7 @@
                 }
             });
 
-            $(':input','#formMain')
-                .not(':button, :submit, :reset, :hidden')
-                .val('')
-                .removeAttr('checked')
-                .removeAttr('selected');
+            
         }
 
     </script>
