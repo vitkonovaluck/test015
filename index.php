@@ -35,7 +35,8 @@
                         document.getElementById(result_id).innerHTML = jsn.message;
                         break;
                     default:
-                        text = "I have never heard of that fruit...";
+                        document.getElementById(result_id).innerHTML = "Неизвестная ошибка!";
+                        break;
                     }
                 },
                 error: function(response) {
