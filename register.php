@@ -60,7 +60,7 @@ if($err_cnt==0){// если ошибки отсутствуют
         $array[] = array('id'=>$max_id+1,'name'=>$_POST['f_name']." ".$_POST['s_name'], 'email'=>$_POST['email']);
         $data['status']=1;//Новая учетная запись
         $data['id']=$max_id+1;
-        $data['message']="Новый пользователь зарегистрирован!";
+        $data['message']="Вы зарегистрированы!";
 
     }else{//Если присутствует учетная запись
         $data['status']=2;
