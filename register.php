@@ -50,9 +50,9 @@ if($err_cnt==0){// если ошибки отсутствуют
 
         if(strcmp($array[$i]['email'],$_POST['email'])==0){
           $id=$i+1;
-          fwrite($fp, date("Y-m-d H:m:i")."Сравнение email ".$array[$i]['email']." и ".$_POST['email']." успешное\r\n");
+          fwrite($fp, date("Y-m-d H:m:i")." Сравнение email ".$array[$i]['email']." и ".$_POST['email']." успешное\r\n");
         }else{
-          fwrite($fp, date("Y-m-d H:m:i")."Сравнение email ".$array[$i]['email']." и ".$_POST['email']." не успешное\r\n");
+          fwrite($fp, date("Y-m-d H:m:i")." Сравнение email ".$array[$i]['email']." и ".$_POST['email']." не успешное\r\n");
         }
     }
 
