@@ -60,11 +60,11 @@
             <div id="messegeResult"></div>
             <div class="form">
                 <form method="post" action="" id="formMain">
-                    Имя: <input id="fname" type="text" name="fname" placeholder="Введите ваше имя" maxlength="30" autocomplete="off" value="Vit"/><br>
-                    Фамилия: <input id="sname" type="text" name="sname" placeholder="Введите вашу фамилию" maxlength="30" autocomplete="off"  value="Kon"/><br>
-                    e-mail: <input id="email" type="text" name="email" placeholder="Введите ваш email" maxlength="30" autocomplete="off" value="Vit@gmail.com"/><br>
-                    Пароль: <input id="password" type="password" name="password" placeholder="Введите пароль" maxlength="30" autocomplete="off"  value="VitKon"/><br>
-                    Повтор пароля: <input id="rpassword" type="password" name="rpassword" placeholder="Повторите пароль" maxlength="30" autocomplete="off"  value="VitKon"/><br>
+                    Имя: <input id="fname" type="text" name="fname" placeholder="Введите ваше имя" maxlength="30" autocomplete="off"/><br>
+                    Фамилия: <input id="sname" type="text" name="sname" placeholder="Введите вашу фамилию" maxlength="30" autocomplete="off"/><br>
+                    e-mail: <input id="email" type="text" name="email" placeholder="Введите ваш email" maxlength="30" autocomplete="off"/><br>
+                    Пароль: <input id="password" type="password" name="password" placeholder="Введите пароль" maxlength="30" autocomplete="off"/><br>
+                    Повтор пароля: <input id="rpassword" type="password" name="rpassword" placeholder="Повторите пароль" maxlength="30" autocomplete="off"/><br>
 
                     <input id="button" type="button"  value="Регистрация"  class="btn btn-primary mb-3"  onclick="AjaxFormRequest('messegeResult', 'formMain', 'register.php')"/>
                 </form>
